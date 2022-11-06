@@ -1,0 +1,8 @@
+/__pycache__/*
+
+*.pyc
+
+.env
+test.py
+
+test2.py
