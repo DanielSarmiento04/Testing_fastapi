@@ -32,6 +32,9 @@ Or using anaconda
  <pre>python3 -m pip install -r requirements.txt</pre>
 
 
+## Test via postman
+
+1. https://www.getpostman.com/collections/d11cd418c26c501ea36c
 
 ## References
 1. [Pydantic](https://pydantic-docs.helpmanual.io/usage/models/)

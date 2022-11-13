@@ -3,10 +3,22 @@ from typing import Union
 from app.decorators.decorators import auth_required
 from app.models.Item import Item
 from app.models.User import User
-from fastapi.security import OAuth2PasswordBearer
-from fastapi import Depends
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from fastapi import Depends, HTTPException, status
+from app.database.users import fake_users_db
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
+
+@app.post("/token")
+async def login(form_data: OAuth2PasswordRequestForm = Depends()):
+    user_dict = fake_users_db.get(form_data.username)
+
+    return {"access_token": form_data.username, "token_type": "bearer"}
+
+
+
+
 
 @app.get('/')
 def index(): 
